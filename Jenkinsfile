@@ -30,7 +30,7 @@ pipeline
 			steps
 			{
 				echo "================|| start publishing ||=================="
-				sh ' docker login localhost:8080'
+				sh ' docker login -u auasis -p LaLka120'
 				sh ' docker push auasis/bairs_site' 
 				
 			}
