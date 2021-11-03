@@ -21,9 +21,17 @@ pipeline
 			steps 
 			{
 				echo "==================|| start building image ||================"
-				sh ' docker build . '
+				sh ' docker build -t auasis/bairs_site '
 			
 			}	
+		}
+		stage("2-Publishing")
+		{
+			steps
+			{
+				echo "================|| start publishing || =================="
+				sh 'docker push auasis/bairs_site'
+			}
 		}
 	
 	}
