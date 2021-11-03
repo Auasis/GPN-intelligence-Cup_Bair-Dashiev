@@ -21,7 +21,7 @@ pipeline
 			steps 
 			{
 				echo "==================|| start building image ||================"
-				sh ' docker build -t auasis/bairs_site '
+				sh ' docker build -t auasis/bairs_site .'
 			
 			}	
 		}
