@@ -25,7 +25,29 @@ pipeline
 			
 			}	
 		}
-		stage("2-Publishing")
+		stage("2-Test")
+		{
+			steps
+			{
+				echo "=================|| start test ||================"
+				sh ' curl -fsSL https://goss.rocks/install | sh '
+				sh ' docker run -d -p 8000:80 auasis/bairs_site '
+				sh ' docker exec -ti auasis/bairs_site bash '
+				sh ' result=grep "Bair" ~/index.html | wc -l ' 
+				sh ' exit '
+				if ( result != 1) {
+					echo "Test Failed"
+					sh ' exit 1 '
+				} else {
+					echo "Test Passed" 
+				}
+				sh ' docker stop $(docker ps -q) '
+				sh ' docker rm -v $(docker ps -aq -f status=exited) '
+				
+			}
+			
+		}
+		stage("3-Publishing")
 		{
 			steps
 			{
@@ -36,7 +58,8 @@ pipeline
 			}
 			
 		}
-		stage("3-Deployment")
+		
+		stage("4-Deployment")
 		{
 			steps
 			{
