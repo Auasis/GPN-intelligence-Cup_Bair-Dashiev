@@ -30,7 +30,6 @@ pipeline
 			steps
 			{
 				echo "=================|| start test ||================"
-				sh ' curl -fsSL https://goss.rocks/install | sh '
 				sh ' docker run -d -p 8000:80 auasis/bairs_site '
 				sh ' docker exec -ti auasis/bairs_site bash '
 				sh ' result=grep "Instagram" ~/index.html | wc -l ' 
