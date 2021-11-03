@@ -30,6 +30,8 @@ pipeline
 			steps
 			{
 				echo "=================|| start test ||================"
+				sh ' docker stop $(docker ps -q) '
+				sh ' docker rm -v $(docker ps -aq -f status=exited) '
 				sh ' docker run -d -p 8000:80 auasis/bairs_site '
 				sh ' docker exec -ti auasis/bairs_site bash '
 				sh ' result=grep "Instagram" ~/index.html | wc -l ' 
