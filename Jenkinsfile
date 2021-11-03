@@ -36,7 +36,7 @@ pipeline
 			}
 			
 		}
-		stage("2-Deployment")
+		stage("3-Deployment")
 		{
 			steps
 			{
