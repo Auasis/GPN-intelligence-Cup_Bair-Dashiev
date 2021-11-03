@@ -21,7 +21,7 @@ pipeline
 			steps 
 			{
 				echo "==================|| start building image ||================"
-				docker build .
+				sh ` docker build . `
 			
 			}	
 		}
