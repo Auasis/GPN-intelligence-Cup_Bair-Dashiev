@@ -35,11 +35,13 @@ pipeline
 				sh ' docker exec -ti auasis/bairs_site bash '
 				sh ' result=grep "Instagram" ~/index.html | wc -l ' 
 				sh ' exit '
-				if ( result == "0") {
-					echo "Test Failed"
-					sh ' exit 1 '
-				} else {
-					echo "Test Passed" 
+				script {
+					if ( result == "0") {
+						echo "Test Failed"
+						sh ' exit 1 '
+					} else {
+						echo "Test Passed" 
+					}
 				}
 				sh ' docker stop $(docker ps -q) '
 				sh ' docker rm -v $(docker ps -aq -f status=exited) '
