@@ -33,9 +33,9 @@ pipeline
 				sh ' curl -fsSL https://goss.rocks/install | sh '
 				sh ' docker run -d -p 8000:80 auasis/bairs_site '
 				sh ' docker exec -ti auasis/bairs_site bash '
-				sh ' result=grep "Bair" ~/index.html | wc -l ' 
+				sh ' result=grep "Instagram" ~/index.html | wc -l ' 
 				sh ' exit '
-				if ( result != 1) {
+				if ( result == "0") {
 					echo "Test Failed"
 					sh ' exit 1 '
 				} else {
