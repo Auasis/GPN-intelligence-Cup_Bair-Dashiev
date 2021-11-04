@@ -36,7 +36,7 @@ pipeline
 				docker ps | awk \"{print $1}" | awk 'FNR == 2 {print}' 
 				"""
 				sh ' docker exec -ti auasis/bairs_site bash '
-				sh ' $result=grep "Instagram" ~/index.html | wc -l ' 
+				sh ' ${result}=grep "Instagram" ~/index.html | wc -l ' 
 				sh ' exit '
 				switch(result)	
 				{
@@ -46,7 +46,7 @@ pipeline
 					echo "Test Failed"
 					exit 1
 				}
-				sh ' docker stop $(docker ps -q) '
+				sh """ docker stop /(docker ps -q) """
 				sh """ docker rm -v \$(docker ps -aq -f status=exited) """
 				
 			}
