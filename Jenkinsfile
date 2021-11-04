@@ -1,3 +1,16 @@
+
+def test(test_result) {
+	sh ' exit '
+	if (test_result < "1" ) {
+		echo "Test Passed"
+		return 0
+	}
+	else { 
+		echo "Test Failed"
+		return 1 
+	}
+}
+
 pipeline 
 {
 	agent any
@@ -8,17 +21,7 @@ pipeline
 	 OWNER_NAME   = "Bair Dashiev"
 	 result = test()
 	}
-	def test(test_result) {
-		sh ' exit '
-		if (test_result < "1" ) {
-			echo "Test Passed"
-			return 0
-		}
-		else { 
-			echo "Test Failed"
-			return 1 
-		}
-	}
+	
 	
 
 	options 
@@ -56,10 +59,11 @@ pipeline
 					script : ' grep "Instagram" ~/index.html | wc -l ',
 					returnStdout: true
 				)
-				test(TESTER)
+				
 			}
 			
 		}
+		test(TESTER)
 		stage("3-Publishing")
 		{
 			steps
