@@ -55,8 +55,6 @@ pipeline
 			
 		}
 		
-	}
-		
 		stage("3-Publishing")
 		{
 			steps
@@ -81,6 +79,7 @@ pipeline
 		
 	
 	}
+}
 def test(TESTER) {
 		sh ' exit '
 		if (test_result < "1" ) {
