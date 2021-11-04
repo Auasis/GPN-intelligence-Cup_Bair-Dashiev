@@ -7,8 +7,7 @@ pipeline
 	 PROJECT_NAME = "Участие в чемпинате"
 	 OWNER_NAME   = "Bair Dashiev"
 	 test()
-	
-	
+	}
 	def test(test_result) {
 		sh ' exit '
 		if (test_result < "1" ) {
@@ -19,9 +18,6 @@ pipeline
 			echo "Test Failed"
 			return 1 
 		}
-	}
-	}
-
 	options 
 	{
 	buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
@@ -62,11 +58,14 @@ pipeline
 				)
 					
 				}
-				test(TESTER)
+				
 				
 			}
+			test(TESTER)
 			
 		}
+		
+	}
 		
 		stage("3-Publishing")
 		{
