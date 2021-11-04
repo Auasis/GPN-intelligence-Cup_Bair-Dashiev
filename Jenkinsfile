@@ -52,7 +52,11 @@ pipeline
 				sh """#!/bin/bash
 				docker exec -ti ${var} 
 				"""
-				test(sh ' grep "Instagram" ~/index.html | wc -l ')
+				TESTER =  sh ( 
+					script : ' grep "Instagram" ~/index.html | wc -l ',
+					returnStdout: true
+				)
+				test(TESTER)
 			}
 			
 		}
