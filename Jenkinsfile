@@ -36,7 +36,7 @@ pipeline
 				script {
 				TESTER = sh( returnStdout : true, script :' docker exec my_con grep "Instagram" /usr/local/apache2/htdocs/index.html | wc -l  ')
 				}
-				echo ${TESTER}
+				echo "${TESTER}"
 				test(TESTER)
 				sh "docker rm -f my_con"
 				
