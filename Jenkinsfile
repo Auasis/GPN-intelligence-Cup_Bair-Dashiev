@@ -39,7 +39,7 @@ pipeline
 				echo "my container= ${var}"
 				script {
 					
-					TESTER = sh( returnStdout : true, script :' docker exec \${var} grep "Instagram" /usr/local/apache2/htdocs/index.html | wc -l  ')
+					TESTER = sh( returnStdout : true, script :' docker exec '+ ${var}+' grep "Instagram" /usr/local/apache2/htdocs/index.html | wc -l  ')
 				}
 				echo "my container= ${var}"
 				sh 'docker rm -f my_con'
