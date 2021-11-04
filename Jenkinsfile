@@ -13,7 +13,7 @@ pipeline
 	buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
 	timestamps()
 	}
-	result=0
+	def result = '0'
 	stages 
 	{
 		stage("1-Build")
