@@ -33,20 +33,11 @@ pipeline
 				
 				echo "=================|| start test ||================"
 				sh ' docker run -d -p 8000:80 --name my_con auasis/bairs_site '
-				script {	
-					var = sh(returnStdout : true, script : "docker ps -aqf 'name=my_con' ")
-				}
-				echo "my container= ${var}"
 				script {
-					
-					TESTER = sh( returnStdout : true, script :' docker exec '+ ${var}+' grep "Instagram" /usr/local/apache2/htdocs/index.html | wc -l  ')
+				TESTER = sh( returnStdout : true, script :' docker exec my_con grep "Instagram" /usr/local/apache2/htdocs/index.html | wc -l  ')
 				}
-				echo "my container= ${var}"
-				sh 'docker rm -f my_con'
-				//test(TESTER)
-				//sh """#!/bin/bash
-				//docker rm -f ${var}
-				//"""
+				test(TESTER)
+				sh "docker rm -f my_con"
 				
 				
 			}
