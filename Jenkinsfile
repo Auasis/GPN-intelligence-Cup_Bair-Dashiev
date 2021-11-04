@@ -6,7 +6,6 @@ pipeline
 	{
 	 PROJECT_NAME = "Участие в чемпинате"
 	 OWNER_NAME   = "Bair Dashiev"
-	 test()
 	}
 	
 	options 
