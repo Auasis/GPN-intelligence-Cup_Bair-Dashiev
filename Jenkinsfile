@@ -35,7 +35,7 @@ pipeline
 				sh ' docker run -d -p 8000:80 auasis/bairs_site '
 				script {
 				var = sh (   
-				script : docker ps | awk '{print \$1}' | grep -v "^CONTAINER" 
+					script : "docker ps | awk '{print ${1}' | grep -v '^CONTAINER' "
 				)
 				}
 				
