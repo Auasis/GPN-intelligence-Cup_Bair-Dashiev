@@ -6,6 +6,7 @@ pipeline
 	{
 	 PROJECT_NAME = "Участие в чемпинате"
 	 OWNER_NAME   = "Bair Dashiev"
+	VAR = sh (script : "docker ps | awk '{print $1}' | grep -v '^CONTAINER' ", returnStdout : true).trim()
 	}
 	
 	options 
@@ -33,10 +34,7 @@ pipeline
 				
 				echo "=================|| start test ||================"
 				sh ' docker run -d -p 8000:80 auasis/bairs_site '
-				var = sh """#!/bin/bash 
-				docker ps | awk '{print $1}' | grep -v '^CONTAINER' """
-					
-				echo "${var}"
+				echo "$var"
 				script {
 				TESTER = sh (
 					script : " docker exec ${var} grep 'Instagram' /usr/local/apache2/htdocs/index.html | wc -l  ",
