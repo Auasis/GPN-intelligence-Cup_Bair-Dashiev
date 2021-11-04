@@ -6,7 +6,7 @@ pipeline
 	{
 	 PROJECT_NAME = "Участие в чемпинате"
 	 OWNER_NAME   = "Bair Dashiev"
-	 result = test()
+	 test()
 	
 	
 	def test(test_result) {
