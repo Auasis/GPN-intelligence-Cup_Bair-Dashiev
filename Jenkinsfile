@@ -37,7 +37,7 @@ pipeline
 				var = sh (   
 					script : """#!/bin/bash
 					docker ps | awk '{print ${1}}' | grep -v '^CONTAINER' 
-					"""
+					""",
 					returnStdout: true
 				)
 				}
