@@ -13,7 +13,7 @@ pipeline
 	buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
 	timestamps()
 	}
-	def result=0
+	result=0
 	stages 
 	{
 		stage("1-Build")
@@ -22,6 +22,7 @@ pipeline
 			{
 				echo "==================|| start building image ||================"
 				sh ' docker build -t bairs_site .'
+				echo " echo $OWNER_NAME"
 			
 			}	
 		}
