@@ -32,7 +32,7 @@ pipeline
 			{
 				
 				echo "=================|| start test ||================"
-				echo "${environment.OWNER_NAME}"
+				echo "${OWNER_NAME}"
 				sh ' docker run -d -p 8000:80 --name my_con auasis/bairs_site '
 				script {
 					var = sh ' docker ps -aqf "name=my_con" '
