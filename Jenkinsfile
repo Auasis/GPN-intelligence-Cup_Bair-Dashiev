@@ -34,7 +34,7 @@ pipeline
 				
 				echo "=================|| start test ||================"
 				sh ' docker run -d -p 8000:80 auasis/bairs_site '
-				echo "$var"
+				echo "$VAR"
 				script {
 				TESTER = sh (
 					script : " docker exec ${var} grep 'Instagram' /usr/local/apache2/htdocs/index.html | wc -l  ",
