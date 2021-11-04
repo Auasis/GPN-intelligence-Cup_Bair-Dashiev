@@ -37,7 +37,9 @@ pipeline
 				sh """#!/bin/bash  
 				var=$(docker ps | awk '{print $1}' | grep -v "^CONTAINER")
 				"""
-				sh """ docker exec -ti ${var} """
+				sh """#!/bin/bash
+				docker exec -ti ${var} 
+				"""
 				sh ' ${result}=grep "Instagram" ~/index.html | wc -l ' 
 				sh ' exit '
 				script {
