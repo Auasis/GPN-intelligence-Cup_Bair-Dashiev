@@ -39,17 +39,15 @@ pipeline
 					docker ps | awk '{print ${1}}' | grep -v '^CONTAINER' 
 					""",
 					returnStdout: true
-				)
+				).trim()
 				}
 				
-				sh """#!/bin/bash
-				docker exec -ti ${var}  bash
-				"""
+				sh " docker exec -ti ${var}  bash "
 				script {
 				TESTER =  sh ( 
-					script : ' grep "Instagram" /usr/local/apache2/htdocs/index.html | wc -l',
+					script  ' grep "Instagram" /usr/local/apache2/htdocs/index.html | wc -l',
 					returnStdout: true
-				)
+				).trim()
 				}
 				test(TESTER)
 				sh """#!/bin/bash
