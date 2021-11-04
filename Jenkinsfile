@@ -6,8 +6,20 @@ pipeline
 	{
 	 PROJECT_NAME = "Участие в чемпинате"
 	 OWNER_NAME   = "Bair Dashiev"
-	 result = '0'
+	 result = test()
 	}
+	def test(test_result) {
+		sh ' exit '
+		if (test_result < "1" ) {
+			echo "Test Passed"
+			return 0
+		}
+		else { 
+			echo "Test Failed"
+			return 1 
+		}
+	}
+	
 
 	options 
 	{
@@ -40,21 +52,7 @@ pipeline
 				sh """#!/bin/bash
 				docker exec -ti ${var} 
 				"""
-				result=sh ' grep "Instagram" ~/index.html | wc -l ' 
-				sh ' exit '
-				script {
-					switch(result)	
-					{
-						case "2" :
-							echo "Test Passed"
-							sh """ docker stop /(docker ps -q) """
-							sh """ docker rm -v \$(docker ps -aq -f status=exited) """
-						default :
-							echo "Test Failed"
-							exit 1
-					}
-				}
-				
+				test(sh ' grep "Instagram" ~/index.html | wc -l ')
 			}
 			
 		}
