@@ -7,7 +7,7 @@ pipeline
 	 PROJECT_NAME = "Участие в чемпинате"
 	 OWNER_NAME   = "Bair Dashiev"
 	 result = test()
-	}
+	
 	
 	def test(test_result) {
 		sh ' exit '
@@ -19,7 +19,8 @@ pipeline
 			echo "Test Failed"
 			return 1 
 		}
-	}	
+	}
+	}
 
 	options 
 	{
