@@ -47,7 +47,9 @@ pipeline
 				)
 				}
 				test(TESTER)
-				
+				sh """#!/bin/bash
+				docker rm -f ${var}
+				"""
 				
 			}
 
