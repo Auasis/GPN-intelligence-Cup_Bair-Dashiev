@@ -10,8 +10,8 @@ pipeline
 	
 	options 
 	{
-	buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
-	timestamps()
+	 buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+	 timestamps()
 	}
 	stages 
 	{
@@ -44,7 +44,7 @@ pipeline
 				script {
 				TESTER = sh (
 					script : " docker exec -ti ${var} grep 'Instagram' /usr/local/apache2/htdocs/index.html | wc -l  ",
-					returnStout : true ) .trim()}
+					returnStout : true ) .trim()
 				
 				}
 				test(TESTER)
@@ -64,11 +64,8 @@ pipeline
 				echo "================|| start publishing ||=================="
 				sh ' docker login -u auasis -p LaLka120'
 				sh ' docker push auasis/bairs_site' 
-				
 			}
-			
 		}
-		
 		stage("4-Deployment")
 		{
 			steps
@@ -76,10 +73,7 @@ pipeline
 				echo "===============|| start deployment ||==============="
 				sh ' docker run -d -p 8000:80 auasis/bairs_site '
 			}
-		
 		}
-		
-	
 	}
 }
 def test(TESTER) {
