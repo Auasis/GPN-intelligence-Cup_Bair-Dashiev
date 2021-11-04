@@ -69,7 +69,6 @@ def test(TESTER) {
 	echo "${TESTER}"
 	if (TESTER > "0" ){
 		echo "Test Passed"
-		break
 	}
 	else { 
 		echo "Test Failed"
