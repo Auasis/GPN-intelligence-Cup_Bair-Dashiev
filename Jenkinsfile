@@ -37,7 +37,7 @@ pipeline
 					var = sh([script : ' docker ps -aqf "name=my_con" ',returnStdout : true]).trim()
 					TESTER = sh( [script :' docker exec ${var} grep "Instagram" /usr/local/apache2/htdocs/index.html | wc -l  ',returnStdout : true]).trim()
 				}
-				echo "${var}"
+				echo "my container= ${var}"
 				sh 'docker rm -f my_con'
 				//test(TESTER)
 				//sh """#!/bin/bash
