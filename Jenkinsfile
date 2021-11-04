@@ -43,7 +43,7 @@ pipeline
 				}
 				script {
 				TESTER = sh (
-					script : " docker exec -ti ${var} grep 'Instagram' /usr/local/apache2/htdocs/index.html | wc -l  ",
+					script : " docker exec ${var} grep 'Instagram' /usr/local/apache2/htdocs/index.html | wc -l  ",
 					returnStout : true ) .trim()
 				
 				}
