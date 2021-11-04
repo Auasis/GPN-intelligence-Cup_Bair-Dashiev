@@ -27,7 +27,7 @@ pipeline
 		}
 		stage("2-Test")
 		{
-			def result
+			def result=0
 			steps
 			{
 				echo "=================|| start test ||================"
