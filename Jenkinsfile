@@ -22,7 +22,7 @@ pipeline
 			{
 				echo "==================|| start building image ||================"
 				sh ' docker build -t bairs_site .'
-				echo $OWNER_NAME		
+						
 			}	
 		}
 		stage("2-Test")
