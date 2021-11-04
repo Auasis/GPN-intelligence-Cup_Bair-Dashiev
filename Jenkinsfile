@@ -33,7 +33,7 @@ pipeline
 				echo "=================|| start test ||================"
 				sh ' docker run -d -p 8000:80 auasis/bairs_site '
 				sh """#!/bin/bash  
-				docker ps | awk \"{print $1}" | awk 'FNR == 2 {print}' 
+				docker ps | awk "{print \$1}" | awk 'FNR == 2 {print}' 
 				"""
 				sh ' docker exec -ti auasis/bairs_site bash '
 				sh ' ${result}=grep "Instagram" ~/index.html | wc -l ' 
