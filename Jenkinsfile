@@ -36,6 +36,7 @@ pipeline
 				script {
 				TESTER = sh( returnStdout : true, script :' docker exec my_con grep "Instagram" /usr/local/apache2/htdocs/index.html | wc -l  ')
 				}
+				echo ${TESTER}
 				test(TESTER)
 				sh "docker rm -f my_con"
 				
@@ -65,7 +66,7 @@ pipeline
 	}
 }
 def test(TESTER) {
-		if (test_result < "1" ) {
+		if (TESTER < "1" ) {
 			echo "Test Passed"
 			return 0
 		}
