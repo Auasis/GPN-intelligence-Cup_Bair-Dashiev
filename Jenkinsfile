@@ -6,6 +6,7 @@ pipeline
 	{
 	 PROJECT_NAME = "Участие в чемпинате"
 	 OWNER_NAME   = "Bair Dashiev"
+	 result = '0'
 	}
 
 	options 
@@ -13,7 +14,6 @@ pipeline
 	buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
 	timestamps()
 	}
-	def result = '0'
 	stages 
 	{
 		stage("1-Build")
