@@ -67,11 +67,11 @@ pipeline
 }
 def test(TESTER) {
 	echo "${TESTER}"
-	if (TESTER != '1' ) {
-		echo "Test Failed"
+	if (TESTER > "" {
+		echo "Test Passed"
 		break
 	}
 	else { 
-		echo "Test Passed"
+		echo "Test Failed"
 	}
 }
