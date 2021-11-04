@@ -41,13 +41,11 @@ pipeline
 					returnStdout : true
 				).trim()
 				}
-				
-				sh " docker exec -ti ${var}  bash "
 				script {
-				TESTER =  sh ( 
-					script : ' grep "Instagram" /usr/local/apache2/htdocs/index.html | wc -l',
-					returnStdout : true
-				).trim()
+				TESTER = sh (
+					script : " docker exec -ti ${var} grep "Instagram" /usr/local/apache2/htdocs/index.html | wc -l  ",
+					returnStout : true ) .trim()}
+				
 				}
 				test(TESTER)
 				sh """#!/bin/bash
@@ -85,7 +83,6 @@ pipeline
 	}
 }
 def test(TESTER) {
-		sh ' exit '
 		if (test_result < "1" ) {
 			echo "Test Passed"
 			return 0
