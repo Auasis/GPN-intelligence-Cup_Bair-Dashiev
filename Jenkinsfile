@@ -33,7 +33,7 @@ pipeline
 				
 				echo "=================|| start test ||================"
 				sh ' docker run -d -p 8000:80 auasis/bairs_site '
-				def var = sh """#!/bin/bash 
+				var = sh """#!/bin/bash 
 				docker ps | awk '{print $1}' | grep -v '^CONTAINER' """
 					
 				echo "${var}"
