@@ -8,16 +8,7 @@ pipeline
 	 OWNER_NAME   = "Bair Dashiev"
 	 test()
 	}
-	def test(TESTER) {
-		sh ' exit '
-		if (test_result < "1" ) {
-			echo "Test Passed"
-			return 0
-		}
-		else { 
-			echo "Test Failed"
-			return 1 
-		}
+	
 	options 
 	{
 	buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
@@ -51,17 +42,16 @@ pipeline
 				docker exec -ti ${var} 
 				"""
 				script {
-					
 				TESTER =  sh ( 
 					script : ' grep "Instagram" ~/index.html | wc -l ',
 					returnStdout: true
 				)
-					
 				}
+				test(TESTER)
 				
 				
 			}
-			test(TESTER)
+
 			
 		}
 		
@@ -94,3 +84,13 @@ pipeline
 
 
 }
+def test(TESTER) {
+		sh ' exit '
+		if (test_result < "1" ) {
+			echo "Test Passed"
+			return 0
+		}
+		else { 
+			echo "Test Failed"
+			return 1 
+		}
