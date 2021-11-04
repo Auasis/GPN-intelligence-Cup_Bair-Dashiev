@@ -61,12 +61,14 @@ pipeline
 					script : ' grep "Instagram" ~/index.html | wc -l ',
 					returnStdout: true
 				)
+					
 				}
+				test(TESTER)
 				
 			}
 			
 		}
-		test(TESTER)
+		
 		stage("3-Publishing")
 		{
 			steps
