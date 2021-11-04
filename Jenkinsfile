@@ -40,7 +40,7 @@ pipeline
 				sh """#!/bin/bash
 				docker exec -ti ${var} 
 				"""
-				sh ' ${result}=grep "Instagram" ~/index.html | wc -l ' 
+				sh  result= sh ' grep "Instagram" ~/index.html | wc -l ' 
 				sh ' exit '
 				script {
 					switch(result)	
