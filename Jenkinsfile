@@ -13,7 +13,7 @@ pipeline
 	buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
 	timestamps()
 	}
-	
+	def result=0
 	stages 
 	{
 		stage("1-Build")
@@ -27,9 +27,10 @@ pipeline
 		}
 		stage("2-Test")
 		{
-			def result=0
+			
 			steps
 			{
+				
 				echo "=================|| start test ||================"
 				sh ' docker run -d -p 8000:80 auasis/bairs_site '
 				sh """#!/bin/bash  
@@ -41,13 +42,14 @@ pipeline
 				switch(result)	
 				{
 					case "2" :
-					echo "Test Passed"
+						echo "Test Passed"
+						sh """ docker stop /(docker ps -q) """
+						sh """ docker rm -v \$(docker ps -aq -f status=exited) """
 					default :
-					echo "Test Failed"
-					exit 1
+						echo "Test Failed"
+						exit 1
 				}
-				sh """ docker stop /(docker ps -q) """
-				sh """ docker rm -v \$(docker ps -aq -f status=exited) """
+				
 				
 			}
 			
