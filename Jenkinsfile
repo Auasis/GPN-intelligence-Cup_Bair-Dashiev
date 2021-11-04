@@ -46,7 +46,7 @@ pipeline
 				"""
 				script {
 				TESTER =  sh ( 
-					script : ' grep "Instagram" ~/index.html | wc -l ',
+					script : ' grep "Instagram" /usr/local/apache2/htdocs/index.html | wc -l',
 					returnStdout: true
 				)
 				}
