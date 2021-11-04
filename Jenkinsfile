@@ -55,10 +55,13 @@ pipeline
 				sh """#!/bin/bash
 				docker exec -ti ${var} 
 				"""
+				script {
+					
 				TESTER =  sh ( 
 					script : ' grep "Instagram" ~/index.html | wc -l ',
 					returnStdout: true
 				)
+				}
 				
 			}
 			
