@@ -9,15 +9,6 @@ pipeline
 	 result = test()
 	}
 	
-	
-
-	options 
-	{
-	buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
-	timestamps()
-	}
-	stages 
-	{
 	def test(test_result) {
 		sh ' exit '
 		if (test_result < "1" ) {
@@ -29,6 +20,15 @@ pipeline
 			return 1 
 		}
 	}	
+
+	options 
+	{
+	buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+	timestamps()
+	}
+	stages 
+	{
+	
 		stage("1-Build")
 		{
 			steps 
