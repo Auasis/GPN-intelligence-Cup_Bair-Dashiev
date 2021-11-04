@@ -1,16 +1,3 @@
-
-def test(test_result) {
-	sh ' exit '
-	if (test_result < "1" ) {
-		echo "Test Passed"
-		return 0
-	}
-	else { 
-		echo "Test Failed"
-		return 1 
-	}
-}
-
 pipeline 
 {
 	agent any
@@ -31,6 +18,17 @@ pipeline
 	}
 	stages 
 	{
+	def test(test_result) {
+		sh ' exit '
+		if (test_result < "1" ) {
+			echo "Test Passed"
+			return 0
+		}
+		else { 
+			echo "Test Failed"
+			return 1 
+		}
+	}	
 		stage("1-Build")
 		{
 			steps 
