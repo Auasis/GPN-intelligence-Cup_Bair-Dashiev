@@ -81,9 +81,6 @@ pipeline
 		
 	
 	}
-
-
-}
 def test(TESTER) {
 		sh ' exit '
 		if (test_result < "1" ) {
@@ -94,3 +91,4 @@ def test(TESTER) {
 			echo "Test Failed"
 			return 1 
 		}
+}
