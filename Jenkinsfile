@@ -34,7 +34,7 @@ pipeline
 				echo "=================|| start test ||================"
 				sh ' docker run -d -p 8000:80 --name my_con auasis/bairs_site '
 				var = sh ' docker ps -aqf "name=my_con" '
-				def TESTER = sh " docker exec ${var} grep 'Instagram' /usr/local/apache2/htdocs/index.html | wc -l  "
+				def TESTER = sh ' docker exec ${var} grep "Instagram" /usr/local/apache2/htdocs/index.html | wc -l  '
 				test(TESTER)
 				sh """#!/bin/bash
 				docker rm -f ${var}
