@@ -67,7 +67,7 @@ pipeline
 }
 def test(TESTER) {
 	echo "${TESTER}"
-	if (TESTER != 1 ) {
+	if (TESTER != '1' ) {
 		echo "Test Failed"
 		break
 	}
