@@ -6,7 +6,7 @@ pipeline
 	{
 	 PROJECT_NAME = "Участие в чемпинате"
 	 OWNER_NAME   = "Bair Dashiev"
-	VAR = sh """ #!/bin/bash docker ps | awk '{print $1}' | grep -v '^CONTAINER' """
+	VAR = sh """ #!/bin/bash docker ps | awk '{print \$1}' | grep -v '^CONTAINER' """
 	}
 	
 	options 
