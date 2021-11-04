@@ -42,7 +42,7 @@ pipeline
 				}
 				
 				sh """#!/bin/bash
-				docker exec -ti ${var} 
+				docker exec -ti ${var}  bash
 				"""
 				script {
 				TESTER =  sh ( 
