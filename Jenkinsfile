@@ -35,7 +35,7 @@ pipeline
 				sh ' docker run -d -p 8000:80 --name my_con auasis/bairs_site '
 				script {	
 					var = sh(returnStdout : true, script : "docker ps -aqf 'name=my_con' ")
-					{
+				}
 				script {
 					
 					TESTER = sh( script :' docker exec ${var} grep "Instagram" /usr/local/apache2/htdocs/index.html | wc -l  ',returnStdout : true)
