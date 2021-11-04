@@ -64,7 +64,7 @@ pipeline
 			steps
 			{
 				echo "===============|| start deployment ||==============="
-				sh ' docker run -d -p 8000:80 auasis/bairs_site '
+				sh ' docker run -d -p 8000:80 --name my_con auasis/bairs_site '
 			}
 		}
 	}
