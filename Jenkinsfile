@@ -6,7 +6,7 @@ pipeline
 	{
 	 PROJECT_NAME = "Участие в чемпинате"
 	 OWNER_NAME   = "Bair Dashiev"
-	VAR = sh """ #!/bin/bash docker ps | awk '{print \$1}' | grep -v '^CONTAINER' """
+	 VAR = sh "  
 	}
 	
 	options 
@@ -33,8 +33,8 @@ pipeline
 			{
 				
 				echo "=================|| start test ||================"
-				sh ' docker run -d -p 8000:80 auasis/bairs_site '
-				echo "$VAR"
+				sh ' docker run -d -p 8000:80 --name my_con auasis/bairs_site '
+				var = sh ' docker ps -aqf "name=my_con" '
 				script {
 				TESTER = sh (
 					script : " docker exec ${var} grep 'Instagram' /usr/local/apache2/htdocs/index.html | wc -l  ",
