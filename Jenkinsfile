@@ -66,11 +66,12 @@ pipeline
 	}
 }
 def test(TESTER) {
-		if (TESTER == "1" ) {
-			echo "Test Passed"
-		}
-		else { 
-			echo "Test Failed"
-			break
-		}
+	echo "${TESTER}"
+	if (TESTER == "1" ) {
+		echo "Test Passed"
+	}
+	else { 
+		echo "Test Failed"
+		break;
+	}
 }
