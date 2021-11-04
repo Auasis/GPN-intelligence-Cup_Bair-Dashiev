@@ -8,7 +8,7 @@ pipeline
 	 OWNER_NAME   = "Bair Dashiev"
 	 test()
 	}
-	def test(test_result) {
+	def test(TESTER) {
 		sh ' exit '
 		if (test_result < "1" ) {
 			echo "Test Passed"
