@@ -69,11 +69,19 @@ pipeline
 	}
 }
 def test(TESTER) {
-	echo "${TESTER}"
-	if ( ${TESTER} > 0 ){
-		echo "Test Passed"
+	
+	switch (TESTER) {
+		case '0' :
+		result = "Test Failed"
+		break
+		default :
+		result = "Test Passed"
+		break
 	}
-	else { 
-		echo "Test Failed"
-	}
+	echo "${result}"
+}
+	
+		
+		
+		
 }
