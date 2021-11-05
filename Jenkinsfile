@@ -20,6 +20,8 @@ pipeline
 		{
 			steps 
 			{
+				echo "${PROJECR_NAME}"
+				echo "${OWNER_NAME}"
 				echo "==================|| start building image ||================"
 				sh ' docker build -t bairs_site .'
 						
@@ -51,7 +53,7 @@ pipeline
 			steps
 			{
 				echo "================|| start publishing ||=================="
-				sh ' docker login -u auasis -p LaLka120'
+				sh ' docker login -u ***** -p ****'
 				sh ' docker push auasis/bairs_site' 
 			}
 		}
