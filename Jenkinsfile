@@ -37,7 +37,7 @@ pipeline
 				echo "=================|| start test ||================"
 				sh ' docker run -d -p 8000:80 --name my_con auasis/bairs_site '
 				script {
-				TESTER = sh( returnStdout : true, script :' docker exec my_con grep "Insdfdfm" /usr/local/apache2/htdocs/index.html | wc -l  ')
+				TESTER = sh( returnStdout : true, script :' docker exec my_con grep "Insdfdfm" /usr/local/apache2/htdocs/index.html | wc -l  ').trim()
 				}
 				echo "${TESTER}"
 				script {
