@@ -40,6 +40,7 @@ pipeline
 				TESTER = sh( returnStdout : true, script :' docker exec my_con grep "Insdfdfm" /usr/local/apache2/htdocs/index.html | wc -l  ')
 				}
 				echo "${TESTER}"
+				script {
 				switch (TESTER) {
 					case '0' :
 						result = "Test Failed"
@@ -47,6 +48,7 @@ pipeline
 					default :
 						result = "Test Passed"
 						break
+				}
 				}
 				echo "${result}"
 				sh "docker rm -f my_con"
