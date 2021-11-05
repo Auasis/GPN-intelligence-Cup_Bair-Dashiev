@@ -80,8 +80,3 @@ def test(TESTER) {
 	}
 	echo "${result}"
 }
-	
-		
-		
-		
-}
