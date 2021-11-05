@@ -39,7 +39,6 @@ pipeline
 				script {
 				TESTER = sh( returnStdout : true, script :' docker exec my_con grep "Instagram" /usr/local/apache2/htdocs/index.html | wc -l  ').trim()
 				}
-				echo "${TESTER}"
 				script {
 				switch (TESTER) {
 					case "0" :
