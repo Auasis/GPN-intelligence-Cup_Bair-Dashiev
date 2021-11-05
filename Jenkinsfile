@@ -44,6 +44,7 @@ pipeline
 				switch (TESTER) {
 					case "0" :
 						result = "Test Failed"
+						sh "exit 1"
 						break
 					default :
 						result = "Test Passed"
