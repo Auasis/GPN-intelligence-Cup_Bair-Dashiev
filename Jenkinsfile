@@ -65,7 +65,7 @@ pipeline
 			steps
 			{
 				echo "================|| start publishing ||=================="
-				sh ' docker login -u auasis -p LaLka120'
+				sh ' docker login -u testauasis -p LaLka1200'
 				sh ' docker push auasis/bairs_site' 
 			}
 		}
