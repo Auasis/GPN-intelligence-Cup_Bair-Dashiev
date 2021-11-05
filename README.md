@@ -5,6 +5,7 @@
 	 - виртуальная машина или хост с Linux на борту
 	 
 	 - установить Jenkins ( https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-20-04-ru ) 
+	 
 	 - установить docker ( https://docs.docker.com/engine/install/ubuntu/ )
 	 
 	 - иметь доступ в репозиторий гитхаб ( если нет писать на почту aquilaromana@mail.ru )
