@@ -70,7 +70,7 @@ pipeline
 }
 def test(TESTER) {
 	echo "${TESTER}"
-	if ( TESTER >0 ){
+	if ( ${TESTER} > 0 ){
 		echo "Test Passed"
 	}
 	else { 
