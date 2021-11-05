@@ -20,10 +20,11 @@ pipeline
 		{
 			steps 
 			{
+				echo "${PROJECT_NAME}"
+				echo "${OWNER_NAME}"
 				echo "==================|| start building image ||================"
 				sh ' docker build -t bairs_site .'
-				echo "${PROJECR_NAME}"
-				echo "${OWNER_NAME}"
+				
 						
 			}	
 		}
