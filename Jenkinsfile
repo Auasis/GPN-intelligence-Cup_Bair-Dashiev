@@ -42,7 +42,7 @@ pipeline
 				echo "${TESTER}"
 				script {
 				switch (TESTER) {
-					case '0' :
+					case "0" :
 						result = "Test Failed"
 						break
 					default :
