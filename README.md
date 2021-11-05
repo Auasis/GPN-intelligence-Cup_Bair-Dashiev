@@ -8,7 +8,7 @@
 	 
 	 - иметь доступ в репозиторий гитхаб ( если нет писать на почту aquilaromana@mail.ru )
 	 
-	 - в jenkins file "stage build" требуется заменить * на ваши данные
+	 - в Jenkinsfile "stage build" требуется заменить * на ваши данные
 
 
 2   Создание pipeline 
