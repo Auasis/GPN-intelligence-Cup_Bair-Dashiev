@@ -42,11 +42,11 @@ pipeline
 				echo "${TESTER}"
 				switch (TESTER) {
 					case '0' :
-					result = "Test Failed"
-					break
+						result = "Test Failed"
+						break
 					default :
-					result = "Test Passed"
-					break
+						result = "Test Passed"
+						break
 				}
 				echo "${result}"
 				sh "docker rm -f my_con"
