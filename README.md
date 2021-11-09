@@ -10,7 +10,7 @@
 	 
 	 - иметь доступ в репозиторий гитхаб ( если нет писать на почту aquilaromana@mail.ru )
 	 
-	 - в Jenkinsfile "stage publiching" требуется заменить * на ваши данные
+	 - в Jenkinsfile "stage publishing" требуется заменить * на ваши данные
 
 
 2   Создание pipeline 
